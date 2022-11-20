@@ -4,9 +4,10 @@ using MovieStore.API.Model;
 
 namespace MovieStore.API.Controllers
 {
+    [ApiController]
     public class AccountController : ControllerBase
     {
-        protected readonly JwtSettings jwtSettings;
+        private readonly JwtSettings jwtSettings;
 
         public AccountController(JwtSettings jwtSettings)
         {
@@ -51,6 +52,7 @@ namespace MovieStore.API.Controllers
                 {
                     return BadRequest($"wrong password");
                 }
+
                 return Ok(Token);
             }
             catch (Exception ex)

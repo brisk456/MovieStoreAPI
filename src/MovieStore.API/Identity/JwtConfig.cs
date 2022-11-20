@@ -13,7 +13,6 @@ namespace MovieStore.API.Identity
             configuration.Bind("JsonWebTokenKeys", bindJwtSettings);
             services.AddSingleton(bindJwtSettings);
 
-
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -21,7 +20,7 @@ namespace MovieStore.API.Identity
             }).AddJwtBearer(options =>
             {
                 options.SaveToken = true;
-                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuerSigningKey = bindJwtSettings.ValidateIssuerSigningKey,
                     IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(bindJwtSettings.IssuerSigningKey)),

@@ -54,6 +54,7 @@ namespace MovieStore.API.JwtHelpers
                 UserToken.UserName = model.UserName;
                 UserToken.Id = model.Id;
                 UserToken.GuidId = Id;
+
                 return UserToken;
             }
             catch (Exception)
