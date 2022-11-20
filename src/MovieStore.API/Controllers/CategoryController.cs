@@ -27,7 +27,7 @@ namespace MovieStore.API.Controllers
             return Ok(_mapper.Map<IEnumerable<CategoryResultDto>>(categoriec));
         }
 
-        [HttpGet]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetById(int id)
